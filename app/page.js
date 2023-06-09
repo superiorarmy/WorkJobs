@@ -1,95 +1,73 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Input from "@/components/input"
+import { BsSearch, BsMap } from "react-icons/bs"
+import Map from "@/components/map"
+import Post from "@/components/post"
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    return (
+        <main>
+            <form className='container mx-auto flex justify-center items-center gap-3'>
+                <Input
+                    type={"text"}
+                    className='my-5 w-48'
+                    label={"Search works"}
+                    icon={<BsSearch />}
+                />
+                <Input
+                    type={"text"}
+                    className='my-5 w-48'
+                    label={"Search Location"}
+                    icon={<BsMap />}
+                />
+                <button className='button' type='submit'>
+                    Search
+                </button>
+            </form>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+            <section>
+                <div className='w-full text-center mr-8 mb-4 text-white'>
+                    <h5 className='text-3xl mb-2 font-bold'>
+                        Find jobs near your
+                    </h5>
+                    <p className='flex justify-center items-center gap-3 mb-4'>
+                        <span className='text-md md:text-xl font-bold'>
+                            There Are
+                        </span>
+                        <span className='text-md md:text-xl'>
+                            xxx Positions
+                        </span>
+                        <span className='text-md md:text-xl'>xx Companies</span>
+                        <span className='text-md md:text-xl'>
+                            Available 10 km.
+                        </span>
+                        <span className='text-md md:text-xl'>Near You</span>
+                    </p>
+                </div>
+                <div className='flex justify-center w-full my-3'>
+                    <button className='button'>More Details</button>
+                </div>
+                {/* MAPS */}
+                <Map className='container mx-auto' />
+                <Post
+                    title={"Job Title"}
+                    company={"Name"}
+                    location={"Location"}
+                    salary={"Salary"}
+                />
+            </section>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+            {/* Reccommed */}
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+            {/* Posts */}
+            <section>
+                <Post
+                    className={"container mx-auto rounded-full"}
+                    title={"Job Title"}
+                    company={"Name"}
+                    location={"Location"}
+                    salary={"Salary"}
+                />
+            </section>
+        </main>
+    )
 }
